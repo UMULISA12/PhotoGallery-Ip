@@ -18,10 +18,12 @@ def one_photo(request, category_name, image_id):
 
     locations = Location.objects.all()
 
-    photo = Image.get_one_image(image_id)
-    
-    return render(request,'photo.html',{'image':image, 'image_category':image_category, 'locations':locations})
+    image = Image.get_image_by_id(image_id)
 
+    image_category = Image.objects.filter(category__photo_category = category_name)
+
+    title = f'{category_name}'
+    return render(request,'photo.html',{'title':title, 'image':image, 'image_category':image_category, 'locations':locations})
 
 def convert_dates(dates):
 

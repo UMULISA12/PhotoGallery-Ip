@@ -1,22 +1,36 @@
-{%extends 'all-photos/base.html'%}
+{% extends 'base.html' %}
 
 {% block content %}
-
-<div class="container">
-
+<div class="container display-image">
   <div class="row">
-    <img src="{{article.article_image.url}}" class="img-responsive" alt="">
+    <div class="col-md-12 single-image">
+      <img src="{{image.image.cdn_url}}" alt="{{image.name}}">
+    </div>
+    <div class="col-md-12 single-text">
+      <h3> {{image.name}} </h3>
+      <p> {{image.description}} </p>
+    </div>
   </div>
-
+  <hr>
   <div class="row">
-    <h1 class="text-center">{{article.title}}</h1>
+    <div class="col-md-12">
+      <h5>Images in this category:</h5>
+      <div class="container">
+        {% for image_item in image_category %}
+        <div class="row">
+          <div class="col-md-8 category-images">
+            <img src="{{img.image.cdn_url}}" alt="{{image_item.name}}">
+          </div>
+          <div class="col-md-4 category-text">
+            <h4>{{image_item.name}}</h4>
+          </div>
+        </div>
+        <hr>
+        {% empty %}
+        <h3>No images in this category</h3>
+        {% endfor %}
+      </div>
+    </div>
   </div>
-
-  <div class="row">
-    <p>{{article.post}}</p>
-  </div>
-
-
 </div>
-
 {% endblock %}
