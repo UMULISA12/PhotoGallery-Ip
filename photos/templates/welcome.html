@@ -1,0 +1,32 @@
+{%extends 'all-photos/base.html'%}
+{% block content %}
+{{ block.super}}
+
+<div class="container">
+  <h1 style="text-align:center;"> Welcome to My Photo Gallery</h1>
+  <!-- Looping through photos   -->
+
+  <div class="row">
+
+    {% for photo_item in images %}
+
+
+    <h2> {{ photo_item.image_name }} </h2>
+    <p> {{ photo_item.image_category}} </p>
+
+    <a href="all-photos/photo.html">Image Details</a>
+
+    <img src="{{photo_item.image.url}}" class="img-responsive" alt="Image">
+
+
+    {% empty %}
+    <div class="row">
+      <h2 class="text-center">There No Gallery Items</h2>
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+
+
+{% endblock %}
