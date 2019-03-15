@@ -25,16 +25,17 @@ def one_photo(request, category_name, image_id):
     title = f'{category_name}'
     return render(request,'photo.html',{'title':title, 'image':image, 'image_category':image_category, 'locations':locations})
 
-def convert_dates(dates):
 
-    # Function that gets the weekday number for the date.
-    day_number = dt.date.weekday(dates)
+# def convert_dates(dates):
 
-    days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday',"Sunday"]
+#     # Function that gets the weekday number for the date.
+#     day_number = dt.date.weekday(dates)
 
-    # Returning the actual day of the week
-    day = days[day_number]
-    return day
+#     days = ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday',"Sunday"]
+
+#     # Returning the actual day of the week
+#     day = days[day_number]
+#     return day
 
 
 

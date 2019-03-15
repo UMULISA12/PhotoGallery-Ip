@@ -8,18 +8,18 @@
 <div class="container-fluid">
   <div class="row">
     {% for photo_item in images %}
-    <p id="image_item-copy"></p>
-    <div class="col-md-4 image_item-holder">
+    <p id="img-copy"></p>
+    <div class="col-md-4 img-holder">
       <!-- <div class="image-details">
-        <p class="text-center"><a data-toggle="modal" data-target="#{{image_item.id}}">{{photo_item.image_name}}</a></p>
+        <p class="text-center"><a data-toggle="modal" data-target="#{{img.id}}">{{photo_item.image_name}}</a></p>
       </div> -->
 
 
       <div class="container">
-        <image_item src="{{photo_item.image.url}}" alt="{{photo_item.image_name}}" height="300px" width="300px">
-          <div class="middle">
-            <p class="text"><a data-toggle="modal" data-target="#{{image_item.id}}">{{photo_item.image_name}}</a></p><br>
-          </div>
+        <img src="{{photo_item.image.url}}" alt="{{photo_item.image_name}}" height="300px" width="300px">
+        <div class="middle">
+          <p class="text"><a data-toggle="modal" data-target="#{{img.id}}">{{photo_item.image_name}}</a></p><br>
+        </div>
       </div>
 
 
@@ -29,7 +29,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <image_item src="/static/image_item/404.jpeg" alt="Loading Image">
+          <img src="/static/img/404.jpeg" alt="Loading Image">
         </div>
         <div class="col-md-6">
           <h2 class="text-center">There No Gallery Items</h2>
@@ -42,41 +42,10 @@
 </div>
 <!-- 
 <div class="container">
-  <img src="imgavatar.png" alt="Avatar" class="image" style="width:100%">
+  <img src="img_avatar.png" alt="Avatar" class="image" style="width:100%">
   <div class="middle">
     <div class="text">John Doe</div>
   </div>
 </div> -->
-<!--  -->
 
-
-{% for image_item in images %}
-<div class="modal fade bd-example-modal-lg" id="{{image_item.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
-  aria-hidden="true">
-  <div class="modal-dialog modal-lg modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-body">
-        <div class="row">
-          <div class="col-md-12 modal-image">
-            <a href="/image/{{image_item.category.photo_category}}/{{image_item.id}}">
-              <img src=" {{image_item.image.cdn_url}}" alt=" {{image_item.name}}">
-
-              <!-- <img src="{{img.image.cdn_url}}" alt="{{img.name}}"> -->
-            </a>
-          </div>
-          <div class="
-                col-md-12 modal-text">
-            <h5 class="modal-title" id="modal-title"> {{image_item.name}} </h5>
-            <hr>
-            <p>{{image_item.description}}</p>
-
-            <p class="small">Category <span class="font-weight-bold">{{image_item.category.photo_category}}</span></p>
-
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-{% endfor %}
 {% endblock %}
