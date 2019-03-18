@@ -1,54 +1,47 @@
 {% extends 'all-photos/base.html' %}
-
 {% block content %}
 {{block.super}}
-
-<h1 style="text-align:center; color: blue;"> Welcome to My Photo Gallery</h1>
-<hr>
-<br>
-
-
 <div class="container-fluid">
   <div class="row">
-    {% for photo_item in images %}
-    <p id="img-copy"></p>
-    <div class="col-md-4 img-holder">
-      <!-- <div class="image-details">
-        <p class="text-center"><a data-toggle="modal" data-target="#{{img.id}}">{{photo_item.image_name}}</a></p>
-      </div> -->
+    {% for image in images %}
+    <div class="col-md-4">
+        <img style="height:250px; width:350px; margin-bottom:20px; margin-top:20px; border-radius:10px;"src="{{image.image.url}}" class="img-rounded" alt="Image" data-toggle="modal" data-target="#{{image.id}}">
 
 
-      <div class="container">
-        <img src="{{photo_item.image.url}}" alt="{{photo_item.image_name}}" height="300px" width="300px">
-        <div class="middle">
-          <p class="text"><a data-toggle="modal" data-target="#{{img.id}}">{{photo_item.image_name}}</a></p><br>
-        </div>
-      </div>
+     <div class="modal fade bd-example-modal-lg" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="imageTitle" aria-hidden="true">
+       <div style="max-width:70%; max-height:50%; padding-top:100px;" class="modal-dialog modal-dialog-centered" role="document">
+         <div class="modal-content">
+           <div class="modal-header">
+             <h5 class="modal-title" id="imageTitle">{{image.image_name}}</h5>
+             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+               <span aria-hidden="true">&times;</span>
+             </button>
+           </div>
+           <div class="modal-body">
+             <img src="{{image.image.url}}" style="margin-left:auto; margin-right:auto;"class="img-fluid" alt="Image">
+             <br>
+             {{image.image_description}}
+             {{image.image.url}}
+           </div>
+           <!-- <div class="modal-footer">
+             <input class="form-control input-lg" type="text"  value="https://gallerymmw.herokuapp.com{{image.image.url}}" id="{{image}}-url" >
+              <button class="btn btn-outline-info" value="https://gallerymmw.herokuapp.com{{image.image.url}}" onclick="copyUrl('{{image.id}}-url')">Copy Image Url</button>
+           </div> -->
+         </div>
+       </div>
+     </div>
 
-
-
-    </div>
-    {% empty %}
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6">
-          <img src="/static/img/404.jpeg" alt="Loading Image">
-        </div>
-        <div class="col-md-6">
-          <h2 class="text-center">There No Gallery Items</h2>
-        </div>
-      </div>
-    </div>
-    {% endfor %}
-
-  </div>
+   </div>
+   <script type="text/javascript">
+     function copyUrl(element){
+       var myVar = document.getElementById(element)
+       myVar.select();
+       document.execCommand('copy')
+     }
+   </script>
+   {% empty %}
+       <h3 class="text-center">There are No Images</h3>
+   {% endfor %}
+ </div>
 </div>
-<!-- 
-<div class="container">
-  <img src="img_avatar.png" alt="Avatar" class="image" style="width:100%">
-  <div class="middle">
-    <div class="text">John Doe</div>
-  </div>
-</div> -->
-
 {% endblock %}

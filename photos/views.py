@@ -12,7 +12,7 @@ def welcome(request):
     return render(request,'welcome.html',{'images':images,'locations':locations})
 
 
-def search_category(request):
+def search_results(request):
     if 'category' in request.GET and request.GET['category']:
         search_term = (request.GET.get('category')).title()
         searched_images = Image.search_by_category(search_term)
@@ -21,8 +21,8 @@ def search_category(request):
 
     else:
         message = "You haven't searched for any category"
-        return render(request,'search.html',{'message':message})
-        
+        return render(request,'all-photos/search.html',{'message':message})
+
 
 def display_location(request,location_id):
     try:
