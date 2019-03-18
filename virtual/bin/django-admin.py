@@ -1,4 +1,4 @@
-#!/home/wecode/Desktop/Photo-gallery/virtual/bin/python2
+#!/home/wecode/Desktop/Weekly_IPs/PhotoGallery-Ip/virtual/bin/python2
 from django.core import management
 
 if __name__ == "__main__":
