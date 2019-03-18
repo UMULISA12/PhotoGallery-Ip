@@ -12,19 +12,23 @@ def welcome(request):
     return render(request,'welcome.html',{'images':images,'locations':locations})
 
 
+
 def search_results(request):
-    if 'category' in request.GET and request.GET['category']:
-        search_term = (request.GET.get('category')).title()
-        searched_images = Image.search_by_category(search_term)
-        message = f'{search_term}'
-        return render(request,'search.html',{'message':message,'images':searched_images})
+
+    if 'category' in request.GET and request.GET["category"]:
+        name = request.GET.get("category")
+        searched_categories = Image.search_by_category(name)
+        message = f"{name}"
+
+        return render(request, 'all-photos/search.html',{"message":message,"categories": searched_categories})
 
     else:
-        message = "You haven't searched for any category"
-        return render(request,'all-photos/search.html',{'message':message})
+        message = "You haven't searched for any term"
+        return render(request, 'all-photos/search.html',{"message":message})      
 
 
-def display_location(request,location_id):
+
+def location(request,location_id):
     try:
         locations = Location.objects.all()
         location = Location.objects.get(id = location_id)
