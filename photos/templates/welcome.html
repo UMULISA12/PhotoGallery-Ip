@@ -2,13 +2,16 @@
 {% block content %}
 {{block.super}}
 <div class="container-fluid">
+  <h1 style="text-align:center;  font-family: monospace;">Welcome to my photo gallery</h1>
+  <hr>
+  <br>
   <div class="row">
     {% for image in images %}
     <div class="col-md-4">
-        <img style="height:250px; width:350px; margin-bottom:20px; margin-top:20px; border-radius:10px;"src="{{image.image.url}}" class="img-rounded" alt="Image" data-toggle="modal" data-target="#{{image.id}}">
+        <img style="height:250px; width:350px; border-radius:10px; margin-left:120px;"src="{{image.image.url}}" class="img-rounded" alt="Image" data-toggle="modal" data-target="#{{image.id}}">
 
 
-     <div class="modal fade bd-example-modal-lg" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="imageTitle" aria-hidden="true">
+     <div class="modal fade bd-example-modal-lg" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="imageTitle" aria-hidden="true" width="20px">
        <div style="max-width:70%; max-height:50%; padding-top:100px;" class="modal-dialog modal-dialog-centered" role="document">
          <div class="modal-content">
            <div class="modal-header">
@@ -20,13 +23,9 @@
            <div class="modal-body">
              <img src="{{image.image.url}}" style="margin-left:auto; margin-right:auto;"class="img-fluid" alt="Image">
              <br>
-             {{image.image_description}}
+             {{image.image_description}}<br>
              {{image.image.url}}
            </div>
-           <!-- <div class="modal-footer">
-             <input class="form-control input-lg" type="text"  value="https://gallerymmw.herokuapp.com{{image.image.url}}" id="{{image}}-url" >
-              <button class="btn btn-outline-info" value="https://gallerymmw.herokuapp.com{{image.image.url}}" onclick="copyUrl('{{image.id}}-url')">Copy Image Url</button>
-           </div> -->
          </div>
        </div>
      </div>

@@ -12,7 +12,7 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" >
             {% for location in locations %}
-            <a class="dropdown-item"  href="{% url 'displayLocation' location.id%}">{{location.name}}</a>
+            <a class="dropdown-item"  href="{% url 'displayLocation' location.id%}">{{location.place}}</a>
             {% endfor %}
           </div>
         </li>
