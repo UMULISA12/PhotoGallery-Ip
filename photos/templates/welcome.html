@@ -8,10 +8,10 @@
   <div class="row">
     {% for image in images %}
     <div class="col-md-4">
-        <img style="height:250px; width:400px; border-radius:10px; margin-left:120px;"src="{{image.image.url}}" class="img-rounded" alt="Image" data-toggle="modal" data-target="#{{image.id}}">
+        <img style="height:250px; width:400px; border-radius:10px; margin-left:100px;"src="{{image.image.url}}" class="img-rounded" alt="Image" data-toggle="modal" data-target="#{{image.id}}">
 
      
-     <div class="modal fade bd-example-modal-lg" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="imageTitle" aria-hidden="true" width="200" height="200">
+     <div class="modal fade bd-example-modal-lg" id="{{image.id}}"  role="dialog" aria-labelledby="imageTitle" aria-hidden="true">
     
       <div style="max-width:70%; max-height:50%; padding-top:100px;" class="modal-dialog modal-dialog-centered" role="document">
          <div class="modal-content">
@@ -24,10 +24,10 @@
            <div class="modal-body">
              <img src="{{image.image.url}}" style="margin-left:auto; margin-right:auto;"class="img-fluid" alt="Image">
              <br>
-             {{image.image_description}}<br>
-             {{image.image.url}}
-             {{image.image_location}}
-             {{image.image_category}}
+             <b>Description:</b> {{image.image_description}}<br>
+             <b>image url:</b> {{image.image.url}}<br>
+             <b>image is taken from:</b> {{image.image_location}}<br>
+             <b>image category:</b> {{image.image_category}}
            </div>
          </div>
        </div>
