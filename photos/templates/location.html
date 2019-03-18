@@ -2,11 +2,12 @@
 {% block content %}
 {{block.super}}
 <div class="container">
-  <h1 class="text-center">{{location.name}}</h1>
-  <div class="row">
+ <div class="row">
     {% for image in images %}
       <div class="col-md-6">
-        <img src="{{image.image.url}}" alt="Image"style="margin-right:10px;" >
+        <h2 style="text-align:center;"><b>{{image.image_name}}</b></h2>
+        <img src="{{image.image.url}}" alt="Image"style="margin-right:10px;" width="400px" height="400px" >
+        
         </div>
     {% endfor%}
     </div>

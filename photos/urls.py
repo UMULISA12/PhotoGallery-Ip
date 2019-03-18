@@ -7,7 +7,7 @@ from . import views
 urlpatterns=[
     url(r'^$',views.welcome,name = 'welcome'),
     url(r'^search/', views.search_results,name='search_results'),
-    url(r'^location/(\d+)',views.location,name='displayLocation'),
+    url(r'^location/(\d+)',views.location,name='showLocation'),
 
 ]
 if settings.DEBUG:

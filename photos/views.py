@@ -16,9 +16,9 @@ def welcome(request):
 def search_results(request):
 
     if 'category' in request.GET and request.GET["category"]:
-        name = request.GET.get("category")
-        searched_categories = Image.search_by_category(name)
-        message = f"{name}"
+        search_term = request.GET.get("category")
+        searched_categories = Image.search_by_category(search_term)
+        message = f"{search_term}"
 
         return render(request, 'all-photos/search.html',{"message":message,"categories": searched_categories})
 
