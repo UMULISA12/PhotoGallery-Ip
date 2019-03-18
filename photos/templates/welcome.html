@@ -36,6 +36,25 @@
        </div>
      </div>
 
+
+     <div class="modal-footer">
+        <input class="form-control input-lg" type="text"  value="https://gallerymmw.herokuapp.com{{image.image.url}}" id="{{image}}-url" >
+         <button class="btn btn-outline-info" value="https://gallerymmw.herokuapp.com{{image.image.url}}" onclick="copyUrl('{{image.id}}-url')">Copy Image Url</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+<script type="text/javascript">
+function copyUrl(element){
+  var myVar = document.getElementById(element)
+  myVar.select();
+  document.execCommand('copy')
+}
+</script>
+
+
    </div>
    {% empty %}
        <h3 class="text-center">There are No Images</h3>
