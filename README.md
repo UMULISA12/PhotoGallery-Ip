@@ -14,11 +14,11 @@ PhotoGallery is a simple web application to show beautiful pictures. Users get t
 * Install dependancies Install dependancies that will create an environment for the app to run pip3 install -r requirements.txt
 
 # Technologies used
-Python 3.6
-Django framework
-HTML
-CSS
-Bootstrap
+* Python 3.6
+* Django framework
+* HTML
+* CSS
+* Bootstrap
 
 # License
 MIT License
