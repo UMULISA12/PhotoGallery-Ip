@@ -19,3 +19,6 @@ Django framework
 HTML
 CSS
 Bootstrap
+
+# License
+MIT License
