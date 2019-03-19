@@ -20,5 +20,8 @@ PhotoGallery is a simple web application to show beautiful pictures. Users get t
 * CSS
 * Bootstrap
 
+# Authors
+Alice UMULISA
+
 # License
 MIT License
