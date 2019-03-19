@@ -1,1 +1,1 @@
-python-3.6.4
+Python 2.7.15rc1
