@@ -32,6 +32,11 @@
              <b>image is taken from:</b> {{image.image_location}}<br>
              <b>image category:</b> {{image.image_category}}
            </div>
+
+           <div class="modal-footer">
+            <input class="form-control input-lg" type="text"  value="https://alicephoto.herokuapp.com{{image.image.url}}" id="{{image}}-url" >
+             <button class="btn btn-outline-info" value="https://alicephoto.herokuapp.com{{image.image.url}}" onclick="copyUrl('{{image.id}}-url')">Copy image url</button>
+          </div>
          </div>
        </div>
      </div>
